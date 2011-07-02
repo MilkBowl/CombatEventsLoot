@@ -1,0 +1,6 @@
+name: CombatEventsLoot
+main: net.milkbowl.combatevents.loot.CombatEventsLoot
+version: 1.0
+author: Sleaker
+description: >
+             A plugin that allows the changing of loot drops.
