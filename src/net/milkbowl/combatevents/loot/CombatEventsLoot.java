@@ -9,7 +9,6 @@ import java.util.Map;
 import java.util.logging.Logger;
 
 import net.milkbowl.combatevents.CombatEventsCore;
-import net.milkbowl.combatevents.CombatEventsListener;
 
 import net.milkbowl.vault.Vault;
 import net.milkbowl.vault.economy.Economy;
@@ -39,7 +38,7 @@ public class CombatEventsLoot extends JavaPlugin {
 	public static Map<String, LootWorldConfig> worldConfig = new HashMap<String, LootWorldConfig>(2);
 	public static Configuration wConfig;
 
-	private CombatEventsListener combatListener;
+	private CombatListener combatListener;
 
 	@Override
 	public void onLoad() {
@@ -70,6 +69,7 @@ public class CombatEventsLoot extends JavaPlugin {
 
 
 		PluginManager pm = this.getServer().getPluginManager();
+		combatListener = new CombatListener();
 		pm.registerEvent(Event.Type.CUSTOM_EVENT, combatListener, Priority.Normal, this);
 
 		log.info(plugName + " - " + "v" + pdfFile.getVersion() + " by Sleaker is enabled!");
@@ -127,7 +127,6 @@ public class CombatEventsLoot extends JavaPlugin {
 			Plugin ceCore = this.getServer().getPluginManager().getPlugin("CombatEventsCore");
 			if (ceCore != null) {
 				this.ceCore = ((CombatEventsCore) ceCore);
-				combatListener = new CombatEventsListener();
 				log.info(plugName + " - Successfully hooked " + ceCore.getDescription().getName() + "v" + ceCore.getDescription().getVersion());
 			}
 		} 

@@ -36,7 +36,7 @@ public class CreatureDrop extends ItemStack {
 		return this;
 	}
 
-	public CreatureDrop getRandom(Random rand) {
+	public CreatureDrop getRandom() {
 		if (this.rand.nextInt(99) <= chance - 1) {
 			super.setAmount(rand.nextInt(max-min) + min);
 			return this;
