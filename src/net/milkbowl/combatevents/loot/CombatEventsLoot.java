@@ -42,6 +42,7 @@ public class CombatEventsLoot extends JavaPlugin {
 
 	@Override
 	public void onLoad() {
+		plugName = "["+this.getDescription().getName()+"]";
 		//If we can't load dependencies, disable
 		if (!setupDependencies())
 			this.getServer().getPluginManager().disablePlugin(this);
@@ -55,9 +56,7 @@ public class CombatEventsLoot extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
-
 		PluginDescriptionFile pdfFile = this.getDescription();
-		plugName = "["+pdfFile.getName()+"]";
 
 		File worldsYml = new File(getDataFolder()+"/worlds.yml");
 		setupFile(worldsYml);
