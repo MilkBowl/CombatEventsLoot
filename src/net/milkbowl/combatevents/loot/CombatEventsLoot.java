@@ -69,7 +69,7 @@ public class CombatEventsLoot extends JavaPlugin {
 
 		PluginManager pm = this.getServer().getPluginManager();
 		combatListener = new CombatListener();
-		pm.registerEvent(Event.Type.CUSTOM_EVENT, combatListener, Priority.Normal, this);
+		pm.registerEvent(Event.Type.ENTITY_DEATH, combatListener, Priority.Normal, this);
 
 		log.info(plugName + " - " + "v" + pdfFile.getVersion() + " by Sleaker is enabled!");
 

@@ -3,23 +3,23 @@ package net.milkbowl.combatevents.loot;
 import java.util.ArrayList;
 
 import org.bukkit.entity.CreatureType;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.LivingEntity;
+import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.event.entity.EntityListener;
 
-import net.milkbowl.combatevents.CombatEventsListener;
-import net.milkbowl.combatevents.events.EntityKilledByEntityEvent;
 import net.milkbowl.combatevents.Utility;
 
-public class CombatListener extends CombatEventsListener{
+public class CombatListener extends EntityListener{
 
 	CombatListener() {
 	}
 
-	@Override
-	public void onEntityKilledByEntityEvent(EntityKilledByEntityEvent event) {
-		CreatureType cType = Utility.getCType(event.getKilled());
+	
+	public void onEntityDeath(EntityDeathEvent event) {
+		CreatureType cType = Utility.getCType((LivingEntity) event.getEntity());
 		//If we gots a valid creature and a valid player lets do some drops!
-		if (event.getAttacker() instanceof Player && !cType.equals(null) ) {
-			String worldName = event.getAttacker().getWorld().getName();
+		if (!cType.equals(null) ) {
+			String worldName = event.getEntity().getWorld().getName();
 			ArrayList<CreatureDrop> drops = CombatEventsLoot.worldConfig.get(worldName).getCreature(cType);
 			if (drops.isEmpty())
 				return;
