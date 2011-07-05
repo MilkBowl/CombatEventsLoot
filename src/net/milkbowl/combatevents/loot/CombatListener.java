@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.bukkit.entity.CreatureType;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.EntityListener;
 
@@ -16,6 +17,8 @@ public class CombatListener extends EntityListener{
 
 	
 	public void onEntityDeath(EntityDeathEvent event) {
+		if (event.getEntity() instanceof Player)
+			return;
 		CreatureType cType = Utility.getCType((LivingEntity) event.getEntity());
 		//If we gots a valid creature and a valid player lets do some drops!
 		if (!cType.equals(null) ) {
@@ -30,6 +33,5 @@ public class CombatListener extends EntityListener{
 				}
 			}
 		}
-
 	}
 }
