@@ -132,8 +132,8 @@ public class CombatEventsLoot extends JavaPlugin {
 		if (CombatEventsLoot.econ == null || CombatEventsLoot.perms == null) {
 			Plugin VAULT = this.getServer().getPluginManager().getPlugin("Vault");
 			if (VAULT != null) {
-				CombatEventsLoot.econ = ((Vault) VAULT).getEconomy();
-				CombatEventsLoot.perms = ((Vault) VAULT).getPermission();
+				CombatEventsLoot.econ = Vault.getEconomy();
+				CombatEventsLoot.perms = Vault.getPermission();
 			}
 		}
 		if (CombatEventsLoot.perms == null || CombatEventsLoot.econ == null || ceCore == null)
