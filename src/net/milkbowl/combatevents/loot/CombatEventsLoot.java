@@ -43,6 +43,11 @@ public class CombatEventsLoot extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		PluginDescriptionFile pdfFile = this.getDescription();
+		
+		if (!setupDependencies()) {
+			this.getServer().getPluginManager().disablePlugin(this);
+			return;
+		}
 
 		File worldsYml = new File(getDataFolder()+"/worlds.yml");
 		setupFile(worldsYml);
@@ -61,6 +66,10 @@ public class CombatEventsLoot extends JavaPlugin {
 
 	}
 
+	private boolean setupDependencies() {
+		return (this.getServer().getPluginManager().getPlugin("CombatEventsCore") != null);
+	}
+	
 	private void setupFile(File file) {
 		if (!file.exists()) {
 			new File(getDataFolder().toString()).mkdir();
