@@ -1,6 +1,6 @@
 name: CombatEventsLoot
 main: net.milkbowl.combatevents.loot.CombatEventsLoot
-version: 1.0-b000
+version: 1.1-b000
 author: Sleaker
 depend: [Vault, CombatEventsCore]
 description: >

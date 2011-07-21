@@ -1,4 +1,6 @@
-CombatEventsLoot - overrides the default loot drops on all monsters defined in the config
+CombatEventsLoot - overrides the default loot drops on all monsters defined in the config.
+This plugin uses source from MobLoot by AOD_Batman
+
 Drops are defined in the following format:
 
 id:subtype:min:max:chance
