@@ -103,7 +103,7 @@ public class CombatEventsLoot extends JavaPlugin {
 				for (CreatureType creature : CreatureType.values()) {
 					if (creature == CreatureType.MONSTER)
 						continue;
-					ArrayList<String> dropData = (ArrayList<String>) wConfig.getStringList(world.getName() + "." + creature.getName(), new ArrayList<String>());
+					ArrayList<String> dropData = (ArrayList<String>) wConfig.getStringList(world.getName() + "." + creature.getName(), null);
 					ArrayList<CreatureDrop> drops = new ArrayList<CreatureDrop>(16);
 					for (String s : dropData) {
 						drops.add(new CreatureDrop(s));
