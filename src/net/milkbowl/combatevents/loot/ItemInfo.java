@@ -58,6 +58,8 @@ public class ItemInfo {
 			invalidate();
 		if (min < 1)
 			min = 1;
+		if (max < min)
+			max = min;
 	}
 	
 	public ItemInfo(int item, int quant, int dropChance) {
@@ -75,17 +77,18 @@ public class ItemInfo {
 	}
 	
 	public boolean isValid() {
-		return (itemID != -1 && dataID != -1 && min != -1 && chance != -1);
+		return (itemID != -1 && dataID != -1 && min != -1 && max != -1 && chance != -1);
 	}
 	
 	public String toString() {
-		return itemID+":"+dataID+":"+min+":"+chance;
+		return itemID + ":" + dataID + ":" + min + ":" + max + ":" + chance;
 	}
 	
 	private void invalidate() {
 		itemID = -1;
 		dataID = -1;
 		min = -1;
+		max = -1;
 		chance = -1;
 	}
 	

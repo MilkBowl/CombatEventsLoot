@@ -33,14 +33,14 @@ public enum CreatureID {
 	WOLF("Wolf"),
 	ZOMBIE("Zombie");
 	
-	private String _name;
+	private String name;
 
 	private CreatureID(String name) {
-		_name = name;
+		this.name = name;
 	}
 	
 	public String getName() {
-		return _name;
+		return name;
 	}
 	
 	public static CreatureID fromName(String name) {
