@@ -23,7 +23,7 @@ public class CombatListener extends CombatEventsListener{
 	
 	@Override
 	public void onEntityKilledByEntity(EntityKilledByEntityEvent event) {
-		if (event.getKilled() instanceof Player || !(event.getAttacker() instanceof Player))
+		if (event.getKilled() instanceof Player )
 			return;
 		
 		CreatureID creature = CreatureID.fromEntity(event.getKilled());
